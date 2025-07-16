@@ -2,7 +2,7 @@
 
 This repository contains the frontend for a full-stack mobile application built with React Native (Expo). The app serves as an AI-powered educational companion that enhances the learning experience from YouTube videos by linking video content directly with relevant NCERT textbook concepts.
 
-The backend for this project can be found in its own repository: [Link to your backend GitHub repo]
+The backend for this project can be found in its own repository: https://github.com/Prerna13anand/educational-app-backend.git
 
 ## Features
 
