@@ -1,39 +1,48 @@
-# Welcome to your Expo app 👋
+# AI-Powered Educational Companion App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repository contains the frontend for a full-stack mobile application built with React Native (Expo). The app serves as an AI-powered educational companion that enhances the learning experience from YouTube videos by linking video content directly with relevant NCERT textbook concepts.
 
-## Get started
+The backend for this project can be found in its own repository: [Link to your backend GitHub repo]
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- **Dynamic Home Screen**: Displays a random selection of "Top Videos" and horizontally scrollable, channel-wise sections.
+- **YouTube Video Player**: A dedicated screen to play selected videos.
+- **AI Concept Mapping**: Fetches the transcript of a YouTube video and uses the Google Gemini API to generate relevant educational concepts.
+- **Live Backend**: The application is connected to a live Node.js backend hosted on Render.
+- **Pull-to-Refresh**: The Home Screen supports pull-to-refresh functionality to reload video data.
 
-2. Start the app
+## Tech Stack
 
-   ```bash
-   npx expo start
-   ```
+- **Frontend**: React Native (Expo)
+- **Navigation**: Expo Router
+- **API Client**: Fetch API
 
-In the output, you'll find options to open the app in a
+## Setup and Installation
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+To run this project locally:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-frontend-repo-link>
+    cd EduAppExpo
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Run the application:**
+    ```bash
+    npx expo start
+    ```
+    Then, scan the QR code with the Expo Go app on your Android device. The backend is live and does not need to be run locally.
 
-## Get a fresh project
+## Known Issues
 
-When you're ready, run:
+-   **Home Screen UI**: The Home Screen currently only displays the "Top Videos" section. The subsequent channel-wise sections ("TED", "Veritasium", etc.) are not appearing. This is due to a persistent cache issue with the Expo Go development client, which is not loading the final, correct version of the `HomeScreen` code. The code itself is correct and designed to render these sections dynamically.
 
-```bash
-npm run reset-project
-```
+-   **NCERT Concept Generation**: The AI concept generation feature is fully implemented in the backend. However, it currently displays "No concepts found for this video." This is because the `youtube-transcript` library used to fetch video transcripts is unable to find available transcripts for the current list of sample videos. The backend logic correctly handles this by returning an empty list, but to see the AI in action, the database needs to be seeded with videos that are confirmed to have transcripts enabled on YouTube.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
 ## Learn more
 
