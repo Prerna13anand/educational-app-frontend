@@ -1,12 +1,12 @@
 # AI-Powered Educational Companion App
 
-This repository contains the frontend for a full-stack mobile application built with React Native (Expo). The app serves as an AI-powered educational companion that enhances the learning experience from YouTube videos by linking video content directly with relevant NCERT textbook concepts.
+This is a full-stack mobile application built with React Native (Expo) and a Node.js backend. The app serves as an AI-powered educational companion that enhances the learning experience from YouTube videos by linking video content directly with relevant NCERT textbook concepts.
 
-The backend for this project can be found in its own repository: https://github.com/Prerna13anand/educational-app-frontend.git
+The backend for this project can be found in its own repository: [Link to your backend GitHub repo]
 
 ## Features
 
-- **Dynamic Home Screen**: Displays a random selection of "Top Videos" and horizontally scrollable, channel-wise sections.
+- **Dynamic Home Screen**: Displays a random selection of "Top Videos" and horizontally scrollable, channel-wise sections populated dynamically from a live database.
 - **YouTube Video Player**: A dedicated screen to play selected videos.
 - **AI Concept Mapping**: Fetches the transcript of a YouTube video and uses the Google Gemini API to generate relevant educational concepts.
 - **Live Backend**: The application is connected to a live Node.js backend hosted on Render.
@@ -39,9 +39,8 @@ To run this project locally:
 
 ## Known Issues
 
--   **Home Screen UI**: The Home Screen currently only displays the "Top Videos" section. The subsequent channel-wise sections ("TED", "Veritasium", etc.) are not appearing. This is due to a persistent cache issue with the Expo Go development client, which is not loading the final, correct version of the `HomeScreen` code. The code itself is correct and designed to render these sections dynamically.
+-   **NCERT Concept Generation**: The AI concept generation feature is fully implemented in the backend. However, it currently displays "No concepts found for this video." This is because the `youtube-transcript` library used to fetch video transcripts is unable to find available transcripts for the current list of sample videos. The backend logic correctly handles this by returning an empty list, but to see the AI in action, the database would need to be seeded with videos that are confirmed to have transcripts enabled on YouTube.
 
--   **NCERT Concept Generation**: The AI concept generation feature is fully implemented in the backend. However, it currently displays "No concepts found for this video." This is because the `youtube-transcript` library used to fetch video transcripts is unable to find available transcripts for the current list of sample videos. The backend logic correctly handles this by returning an empty list, but to see the AI in action, the database needs to be seeded with videos that are confirmed to have transcripts enabled on YouTube.
 
 
 ## Learn more
