@@ -1,29 +1,30 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
+import React from 'react';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Stack
+      screenOptions={{
+        // Set default styles for all screen headers
+        headerStyle: {
+          backgroundColor: '#1c1c1c', // Dark background
+        },
+        headerTintColor: '#ffffff', // White text
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
+      {/* The 'index' screen is your home screen.
+        We can give it a title for the header.
+      */}
+      <Stack.Screen name="index" options={{ title: 'Educational Companion' }} />
+
+      {/* This defines the video player screen.
+        The file for this screen will be app/videoPlayer.tsx
+      */}
+      <Stack.Screen name="videoPlayer" options={{ title: 'Video Player' }} />
+    </Stack>
   );
 }
+
